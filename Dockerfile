@@ -1,5 +1,5 @@
 # Step 1: Build the frontend
-FROM node:18-alpine AS builder
+FROM node:16-alpine as builder
 WORKDIR /app
 
 # Install necessary tools (e.g., git) for cloning the external repository
