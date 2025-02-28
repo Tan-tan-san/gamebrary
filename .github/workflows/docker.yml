@@ -28,7 +28,11 @@ jobs:
             --platform linux/amd64,linux/arm64 \
             --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} \
             --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} \
-            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} --push .
+            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} .
+            
+      - name: Push Docker image to GitHub Container Registry
+        run: |
+          docker push ghcr.io/tan-tan-san/gamebrary:${{ github.sha }}
 
   security_scan:
     runs-on: ubuntu-latest
