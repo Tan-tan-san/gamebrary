@@ -20,11 +20,11 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+        run: echo "${{ secrets.GITHUB_PAT }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 
       - name: Build and Push Multiarch Image
         run: |
-          docker buildx build \
+          docker buildx build \ 
             --platform linux/amd64,linux/arm64 \
             --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} \
             --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} \
