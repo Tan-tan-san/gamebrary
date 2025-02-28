@@ -24,11 +24,10 @@ jobs:
 
       - name: Build and Push Multiarch Image
         run: |
-          docker buildx build \ 
-            --platform linux/amd64,linux/arm64 \
+          docker buildx build --platform linux/amd64,linux/arm64 \
             --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} \
             --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} \
-            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} --push .
+            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} --push --no-cache .
 
   security_scan:
     runs-on: ubuntu-latest
