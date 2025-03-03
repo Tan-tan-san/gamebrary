@@ -17,7 +17,7 @@ Gamebrary is an open-source game library manager that helps you organize and tra
 
 ## 🔗 Original Repository
 
-Gamebrary is based on the [original Gamebrary repository](https://github.com/gamebrary/gamebrary). Check it out for more information and updates.
+This Gamebrary docker image is based on the [original Gamebrary repository](https://github.com/gamebrary/gamebrary). Check it out for more information and updates.
 
 
 ---
