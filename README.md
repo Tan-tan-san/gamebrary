@@ -1,6 +1,6 @@
 # Gamebrary
 
-Gamebrary is an open-source game library manager that helps you organize and track your game collection effortlessly. It provides a sleek and user-friendly interface to manage your games across multiple platforms. I was never able to find a docker image of this software so I could deploy this to my kubernetes cluster so built a simple dockerfile to serve the application up. The original application 
+Gamebrary is an open-source game library manager that helps you organize and track your game collection effortlessly. It provides a sleek and user-friendly interface to manage your games across multiple platforms. I was never able to find a docker image of this software so I could deploy this to my kubernetes cluster so built a simple dockerfile to serve the application up. 
 
 ---
 
