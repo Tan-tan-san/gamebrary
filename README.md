@@ -1,8 +1,8 @@
 # Gamebrary
 
-Gamebrary is an open-source game library manager that helps you organize and track your game collection effortlessly. It provides a sleek and user-friendly interface to manage your games across multiple platforms.
-
+Gamebrary is an open-source game library manager that helps you organize and track your game collection effortlessly. It provides a sleek and user-friendly interface to manage your games across multiple platforms. I was never able to find a docker image of this software so I could deploy this to my kubernetes cluster so built a simple dockerfile to serve the application up. The original application 
 ---
+
 
 ## 🚀 Features
 
@@ -13,7 +13,14 @@ Gamebrary is an open-source game library manager that helps you organize and tra
 - 🔧 **Customizable** – Customize game categories, tags, and themes.
 - 📊 **Statistics & Insights** – Track your playtime and completion progress.
 
+
+## 🔗 Original Repository
+
+Gamebrary is based on the [original Gamebrary repository](https://github.com/gamebrary/gamebrary). Check it out for more information and updates.
+
+
 ---
+
 
 ## 📦 Installation
 
@@ -30,6 +37,8 @@ docker run -d \
   ghcr.io/tan-tan-san/gamebrary:latest
 ```
 Once running, open http://localhost:3000 in your browser.
+
+
 
 🏗️ Deployment with Kubernetes
 
@@ -70,6 +79,8 @@ spec:
       targetPort: 80
   type: ClusterIP
 ```
+
+
 🛠️ Development
 
 To run the project locally:
