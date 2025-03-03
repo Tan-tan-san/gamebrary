@@ -1,34 +1,34 @@
-Gamebrary
+# Gamebrary
 
+Gamebrary is an open-source game library manager that helps you organize and track your game collection effortlessly. It provides a sleek and user-friendly interface to manage your games across multiple platforms.
 
+---
 
-Gamebrary is an open-source game library manager that helps you organize and track your game collection effortlessly. It provides a sleek and user-friendly interface to manage your games across multiple platforms. A docker image of this didnt exist so I built a simple deployment to track my retro videogame collection and not have to use excel or a paid app on my phone.
+## 🚀 Features
 
-🚀 Features
+- 🗂 **Game Library Management** – Easily add, organize, and search for games in your collection.
+- 🔍 **Game Metadata** – Fetch game details, covers, and descriptions automatically.
+- ☁ **Cloud Sync** – Sync your library across multiple devices.
+- 🎮 **Multi-Platform Support** – Manage games from PC, console, and cloud services.
+- 🔧 **Customizable** – Customize game categories, tags, and themes.
+- 📊 **Statistics & Insights** – Track your playtime and completion progress.
 
-🗂 Game Library Management – Easily add, organize, and search for games in your collection.
+---
 
-🔍 Game Metadata – Fetch game details, covers, and descriptions automatically.
+## 📦 Installation
 
-☁ Cloud Sync – Sync your library across multiple devices.
-
-🎮 Multi-Platform Support – Manage games from PC, console, and cloud services.
-
-🔧 Customizable – Customize game categories, tags, and themes.
-
-📊 Statistics & Insights – Track your playtime and completion progress.
-
-📦 Installation
-
-Using Docker
+### Using Docker
 
 To run Gamebrary using Docker:
 
+```bash
 docker run -d \
   --name gamebrary \
   -p 3000:3000 \
+  -e GITHUB_USER=<your-github-username> \
+  -e GITHUB_PAT=<your-personal-access-token> \
   ghcr.io/tan-tan-san/gamebrary:latest
-
+```
 Once running, open http://localhost:3000 in your browser.
 
 🏗️ Deployment with Kubernetes
