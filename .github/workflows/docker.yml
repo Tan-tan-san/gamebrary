@@ -39,7 +39,7 @@ jobs:
       
       - name: Build and Push Multiarch Image
         run: |
-          IMAGE_NAME="ghcr.io/$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')/gamebrary:latest }}"
+          IMAGE_NAME="ghcr.io/$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')/gamebrary:${{ github.sha }}"
           docker buildx build \
             --platform linux/${{ matrix.architecture }} \
             --build-arg GITHUB_USER="${{ secrets.GH_USERNAME }}" \
