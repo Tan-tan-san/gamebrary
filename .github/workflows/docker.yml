@@ -19,6 +19,20 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      - name: Verify Buildx Installation
+        run: docker buildx version
+
+      - name: Set Working Directory
+        run: cd $GITHUB_WORKSPACE
+
+      - name: Debug Repository Checkout
+        run: ls -la
+
+      - name: Debug Secrets
+        run: |
+          echo "GH_USERNAME=${{ secrets.GH_USERNAME }}"
+          echo "GH_PAT length=${#secrets.GH_PAT}"
+          
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 
@@ -27,7 +41,7 @@ jobs:
           docker buildx build --platform linux/amd64,linux/arm64 \
             --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} \
             --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} \
-            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} --push --no-cache .
+            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} --push --no-cache --progrss=plain .
 
   security_scan:
     runs-on: ubuntu-latest
