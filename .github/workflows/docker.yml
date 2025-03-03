@@ -27,23 +27,13 @@ jobs:
 
       - name: Debug Repository Checkout
         run: ls -la
-
-      - name: Debug Secrets
-        run: |
-          echo "GH_USERNAME=${{ secrets.GH_USERNAME }}"
-          echo "GH_PAT=${{ secrets.GH_PAT }}"
           
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 
       - name: Build and Push Multiarch Image
         run: |
-          docker buildx build \
-          --platform linux/amd64,linux/arm64 \
-          --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} \
-          --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} \
-          -t ghcr.io/${{ github.repository_owner }}/gamebrary:${{ github.sha }} \
-          --push --file ./Dockerfile --progress=plain .
+          docker buildx build --platform linux/amd64,linux/arm64 --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} -t ghcr.io/${{ github.repository_owner }}/gamebrary:${{ github.sha }} --push --file ./Dockerfile --progress=plain .
 
   security_scan:
     runs-on: ubuntu-latest
