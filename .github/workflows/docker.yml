@@ -35,8 +35,7 @@ jobs:
           docker buildx build \
           --platform linux/amd64,linux/arm64 \
           --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} \
-          --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} \
-          -t "$IMAGE_NAME" \
+          --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} -t $IMAGE_NAME \
           --push --file Dockerfile --progress=plain .
  
   security_scan:
