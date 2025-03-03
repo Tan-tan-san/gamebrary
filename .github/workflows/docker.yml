@@ -41,7 +41,8 @@ jobs:
           docker buildx build --platform linux/amd64,linux/arm64 \
             --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} \
             --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} \
-            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} --push --no-cache --progrss=plain .
+            -t ghcr.io/Tan-tan-san/gamebrary:${{ github.sha }} \
+            --push --no-cache --progrss=plain .
 
   security_scan:
     runs-on: ubuntu-latest
