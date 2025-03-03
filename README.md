@@ -23,6 +23,7 @@ This Gamebrary docker image is based on the [original Gamebrary repository](http
 ---
 
 
+
 ## 📦 Installation
 
 ### Using Docker
@@ -38,6 +39,7 @@ docker run -d \
   ghcr.io/tan-tan-san/gamebrary:latest
 ```
 Once running, open http://localhost:3000 in your browser.
+
 
 
 
@@ -92,9 +94,14 @@ cd gamebrary
 docker-compose up -d
 ```
 
+
+
 📜 License
 
 This project is licensed under the MIT License.
+
+
+
 
 🤝 Contributing
 
@@ -109,6 +116,9 @@ Make your changes and commit them (git commit -m "Add new feature").
 Push to your branch (git push origin feature-branch).
 
 Create a Pull Request.
+
+
+
 
 📬 Contact
 
