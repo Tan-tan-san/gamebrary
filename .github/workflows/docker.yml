@@ -30,6 +30,14 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 
+      - name: Debug Build Command
+        run: |
+          IMAGE_NAME="ghcr.io/${{ github.repository_owner }}/gamebrary:${{ github.sha }}"
+          echo "Using IMAGE_NAME: $IMAGE_NAME"
+          echo "Full Build Command:"
+          echo "docker buildx build --platform linux/amd64,linux/arm64 --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} -t $IMAGE_NAME --push --file Dockerfile --progress=plain ."
+ 
+      
       - name: Build and Push Multiarch Image
         run: |
           docker buildx build \
@@ -42,13 +50,6 @@ jobs:
           --progress=plain \ 
           .
 
-      - name: Debug Build Command
-        run: |
-          IMAGE_NAME="ghcr.io/${{ github.repository_owner }}/gamebrary:${{ github.sha }}"
-          echo "Using IMAGE_NAME: $IMAGE_NAME"
-          echo "Full Build Command:"
-          echo "docker buildx build --platform linux/amd64,linux/arm64 --build-arg GITHUB_USER=${{ secrets.GH_USERNAME }} --build-arg GITHUB_PAT=${{ secrets.GH_PAT }} -t $IMAGE_NAME --push --file Dockerfile --progress=plain ."
- 
   security_scan:
     runs-on: ubuntu-latest
     needs: build  # Ensures scan runs only after the image is built
