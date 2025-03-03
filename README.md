@@ -34,7 +34,7 @@ Once running, open http://localhost:3000 in your browser.
 🏗️ Deployment with Kubernetes
 
 To deploy Gamebrary in a Kubernetes cluster, use the following manifest:
-
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -69,14 +69,16 @@ spec:
       port: 80
       targetPort: 80
   type: ClusterIP
-
+```
 🛠️ Development
 
 To run the project locally:
 
+```
 git clone https://github.com/Tan-tan-san/gamebrary.git
 cd gamebrary
 docker-compose up -d
+```
 
 📜 License
 
@@ -102,5 +104,5 @@ For support or inquiries, feel free to reach out via:
 
 GitHub Issues
 
-Email: your-email@example.com
+Email: anona@privacyrequired.com
 
