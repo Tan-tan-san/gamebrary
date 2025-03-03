@@ -39,8 +39,6 @@ jobs:
       
       - name: Build and Push Multiarch Image
         run: |
-          env:
-            DOCKER_CLI_EXPERIMENTAL: enabled
           IMAGE_NAME="ghcr.io/$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')/gamebrary:latest }}"
           docker buildx build \
             --platform linux/${{ matrix.architecture }} \
