@@ -34,8 +34,6 @@ To run Gamebrary using Docker:
 docker run -d \
   --name gamebrary \
   -p 3000:3000 \
-  -e GITHUB_USER=<your-github-username> \
-  -e GITHUB_PAT=<your-personal-access-token> \
   ghcr.io/tan-tan-san/gamebrary:latest
 ```
 Once running, open http://localhost:3000 in your browser.
